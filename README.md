@@ -1,3 +1,8 @@
+## Demo
+See the following video for a demonstration of the application:
+
+[![Demo Video](media/Recording%202025-09-03%20001042.mp4)](media/Recording%202025-09-03%20001042.mp4)
+
 # Sensitive Words Clean - Text Sanitization System
 
 A comprehensive text sanitization and content moderation system built with Clean Architecture principles using .NET Core, Entity Framework, and MSSQL.
@@ -25,37 +30,33 @@ The project follows Clean Architecture principles with the following layers:
 
 ## Getting Started
 
-### Prerequisites
 
-- .NET 9.0 SDK or later
-- MSSQL Server or LocalDB
-- Visual Studio 2022 or VS Code
+## Features
+- Sensitive words management via Web UI and API
+- Text sanitization endpoint
+- Swagger API documentation
 
-### Installation
+## Technologies Used
+- ASP.NET Core Web API
+- ASP.NET MVC
+- Domain-Driven Design (DDD)
+- MSSQL
+- Swagger
 
-1. Clone the repository or extract the project files
-2. Navigate to the project directory
-3. Restore NuGet packages:
-   ```bash
-   dotnet restore
-   ```
+## Getting Started
+1. Clone the repository.
+2. Build the solution using Visual Studio or `dotnet build`.
+3. Update connection strings in `appsettings.json` if needed.
+4. Run the API:
+   - `dotnet run --project src/SensitiveWordsClean.API`
+   - Default API port: `http://localhost:5000`
+   - Swagger: `http://localhost:5000/swagger`
+5. Run the Web frontend:
+   - `dotnet run --project src/SensitiveWordsClean.Web`
+   - Default Web port: `http://localhost:5001`
 
-### Database Setup
-
-The application uses MSSQL LocalDB by default. The database will be automatically created when the API starts for the first time.
-
-**Connection String** (in `appsettings.json`):
-```json
-{
-  "ConnectionStrings": {
-    "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=SensitiveWordsCleanDb;Trusted_Connection=true;MultipleActiveResultSets=true"
-  }
-}
-```
-
-### Running the Application
-
-#### Option 1: Run API and Web separately
+## License
+MIT
 
 1. **Start the API** (runs on https://localhost:5001):
    ```bash

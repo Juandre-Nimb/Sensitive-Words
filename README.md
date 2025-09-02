@@ -1,7 +1,7 @@
 ## Demo
 Download the following video from the `media` folder to view a demonstration of the application:
 
-[Demo.mp4](media/Demo.mp4)
+[Demo.mp4](https://github.com/Juandre-Nimb/Sensitive-Words/raw/refs/heads/main/media/Demo.mp4)
 
 # Sensitive Words - Text Sanitization System
 
@@ -19,52 +19,20 @@ A comprehensive text sanitization and content moderation system built with Clean
 
 The project follows Clean Architecture principles with the following layers:
 
-- **Domain Layer** (`SensitiveWordsClean.Domain`): Core business entities and domain interfaces
-- **Application Layer** (`SensitiveWordsClean.Application`): Business logic, DTOs, and application services
-- **Infrastructure Layer** (`SensitiveWordsClean.Infrastructure`): Data access and external services implementation
-- **API Layer** (`SensitiveWordsClean.API`): RESTful Web API with Swagger documentation
-- **Web Layer** (`SensitiveWordsClean.Web`): ASP.NET MVC frontend application
-
-## Getting Started
-
-## Technologies Used
-- ASP.NET Core Web API
-- ASP.NET MVC
-- Domain-Driven Design (DDD)
-- MSSQL
-- Javascript and JQuery
-- Swagger
+- **Domain Layer** (`SensitiveWords.Domain`): Core business entities and domain interfaces
+- **Application Layer** (`SensitiveWords.Application`): Business logic, DTOs, and application services
+- **Infrastructure Layer** (`SensitiveWords.Infrastructure`): Data access and external services implementation
+- **API Layer** (`SensitiveWords.API`): RESTful Web API with Swagger documentation
+- **Web Layer** (`SensitiveWords.Web`): ASP.NET MVC frontend application
 
 ## Getting Started
 1. Clone the repository.
 2. Build the solution using Visual Studio or `dotnet build`.
 3. Update connection strings in `appsettings.json` if needed.
-4. Run the API:
-   - `dotnet run --project src/SensitiveWordsClean.API`
-   - Default API port: `http://localhost:5291`
-   - Swagger: `http://localhost:5291/swagger`
-5. Run the Web frontend:
-   - `dotnet run --project src/SensitiveWordsClean.Web`
-   - Default Web port: `http://localhost:5258`
-
-1. **Start the API** (runs on http://localhost:5291 or https://localhost:7203):
-   ```bash
-   cd src/SensitiveWordsClean.API
-   dotnet run
-   ```
-
-2. **Start the Web application** (runs on http://localhost:5258 or https://localhost:7092):
-   ```bash
-   cd src/SensitiveWordsClean.Web
-   dotnet run
-   ```
-
-#### Option 2: Use Visual Studio
-
-1. Set multiple startup projects:
+4. Set multiple startup projects:
    - Right-click solution → Properties
    - Select "Multiple startup projects"
-   - Set both `SensitiveWordsClean.API` and `SensitiveWordsClean.Web` to "Start"
+   - Set both `SensitiveWords.API` and `SensitiveWords.Web` to "Start"
 
 ## Production Deployment Walkthrough
 
@@ -165,15 +133,15 @@ To make this project more complete, consider adding:
 ## Project Structure
 
 ```
-SensitiveWordsClean/
+SensitiveWords/
 ├── src/
-│   ├── SensitiveWordsClean.Domain/         # Domain entities and interfaces
-│   ├── SensitiveWordsClean.Application/    # Business logic and DTOs
-│   ├── SensitiveWordsClean.Infrastructure/ # Data access and services
-│   ├── SensitiveWordsClean.API/            # RESTful Web API
-│   └── SensitiveWordsClean.Web/            # MVC Web application
+│   ├── SensitiveWords.Domain/         # Domain entities and interfaces
+│   ├── SensitiveWords.Application/    # Business logic and DTOs
+│   ├── SensitiveWords.Infrastructure/ # Data access and services
+│   ├── SensitiveWords.API/            # RESTful Web API
+│   └── SensitiveWords.Web/            # MVC Web application
 ├── tests/                                  # Unit and integration tests
-└── SensitiveWordsClean.sln                 # Solution file
+└── SensitiveWords.sln                 # Solution file
 ```
 
 ## License

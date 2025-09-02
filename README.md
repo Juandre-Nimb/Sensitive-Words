@@ -1,9 +1,9 @@
 ## Demo
-See the following video for a demonstration of the application:
+Download the following video from the `media` folder to view a demonstration of the application:
 
-[![Demo Video](media/Recording%202025-09-03%20001042.mp4)](media/Recording%202025-09-03%20001042.mp4)
+[Demo.mp4](media/Demo.mp4)
 
-# Sensitive Words Clean - Text Sanitization System
+# Sensitive Words - Text Sanitization System
 
 A comprehensive text sanitization and content moderation system built with Clean Architecture principles using .NET Core, Entity Framework, and MSSQL.
 
@@ -11,12 +11,9 @@ A comprehensive text sanitization and content moderation system built with Clean
 
 - **RESTful API** with full CRUD operations for sensitive word management
 - **Real-time text sanitization** with customizable replacement characters
-- **Category-based word management** for better organization
-- **Active/inactive word status** for flexible content moderation
 - **Swagger/OpenAPI documentation** for easy API exploration
 - **ASP.NET MVC frontend** with admin panel and chat demo
 - **Clean Architecture (DDD)** with proper separation of concerns
-- **Entity Framework Core** with MSSQL database support
 
 ## Architecture
 
@@ -30,17 +27,12 @@ The project follows Clean Architecture principles with the following layers:
 
 ## Getting Started
 
-
-## Features
-- Sensitive words management via Web UI and API
-- Text sanitization endpoint
-- Swagger API documentation
-
 ## Technologies Used
 - ASP.NET Core Web API
 - ASP.NET MVC
 - Domain-Driven Design (DDD)
 - MSSQL
+- Javascript and JQuery
 - Swagger
 
 ## Getting Started
@@ -49,22 +41,19 @@ The project follows Clean Architecture principles with the following layers:
 3. Update connection strings in `appsettings.json` if needed.
 4. Run the API:
    - `dotnet run --project src/SensitiveWordsClean.API`
-   - Default API port: `http://localhost:5000`
-   - Swagger: `http://localhost:5000/swagger`
+   - Default API port: `http://localhost:5291`
+   - Swagger: `http://localhost:5291/swagger`
 5. Run the Web frontend:
    - `dotnet run --project src/SensitiveWordsClean.Web`
-   - Default Web port: `http://localhost:5001`
+   - Default Web port: `http://localhost:5258`
 
-## License
-MIT
-
-1. **Start the API** (runs on https://localhost:5001):
+1. **Start the API** (runs on http://localhost:5291 or https://localhost:7203):
    ```bash
    cd src/SensitiveWordsClean.API
    dotnet run
    ```
 
-2. **Start the Web application** (runs on https://localhost:5002):
+2. **Start the Web application** (runs on http://localhost:5258 or https://localhost:7092):
    ```bash
    cd src/SensitiveWordsClean.Web
    dotnet run
@@ -77,87 +66,66 @@ MIT
    - Select "Multiple startup projects"
    - Set both `SensitiveWordsClean.API` and `SensitiveWordsClean.Web` to "Start"
 
-## Usage
+## Production Deployment Walkthrough
 
-### API Documentation
+To deploy this solution in a production environment, follow these recommended steps:
 
-Once the API is running, access the Swagger documentation at:
-- **Swagger UI**: https://localhost:5001 (root URL)
-- **OpenAPI spec**: https://localhost:5001/swagger/v1/swagger.json
+1. **Build and Publish Artifacts**
+   - Use `dotnet publish` to generate release builds for both API and Web projects.   
 
-### Web Interface
+2. **Database Setup**
+   - Provision a production-grade MSSQL database (cloud or on-premises).
+   - Apply migrations using Entity Framework Core or your preferred tool.
+   - Secure connection strings and credentials.
 
-Access the web application at https://localhost:5002 (when running Web project):
+3. **Configuration**
+   - Set environment variables for production (e.g., `ASPNETCORE_ENVIRONMENT=Production`).
+   - Update `appsettings.Production.json` with production values (connection strings, logging, etc.).
 
-- **Home Page**: Overview of system features
-- **Admin Panel**: Manage sensitive words (CRUD operations)
-- **Chat Demo**: Test text sanitization in real-time
+4. **Web Server**
+   - Host the API and Web apps behind a reverse proxy (e.g., IIS, Nginx, Apache, Azure App Service).
+   - Configure HTTPS and SSL certificates for secure communication.
+   - Set up proper routing for API and Web endpoints.
 
-### API Endpoints
+5. **Scaling & Reliability**
+   - Use containers (Docker) or cloud services for scalability and easier deployment.
+   - Consider using Kubernetes for high availability.
+   - Enable health checks and monitoring (e.g., Application Insights).
 
-#### Sensitive Words Management
-- `GET /api/sensitivewords` - Get all sensitive words
-- `GET /api/sensitivewords/{id}` - Get specific sensitive word
-- `GET /api/sensitivewords/active` - Get active sensitive words
-- `GET /api/sensitivewords/category/{category}` - Get words by category
-- `POST /api/sensitivewords` - Create new sensitive word
-- `PUT /api/sensitivewords/{id}` - Update existing sensitive word
-- `DELETE /api/sensitivewords/{id}` - Delete sensitive word
+6. **Security**
+   - Implement authentication and authorization (JWT, OAuth, etc.).
+   - Restrict access to sensitive endpoints and data.
+   - Regularly update dependencies and patch vulnerabilities.
 
-#### Text Sanitization
-- `POST /api/textsanitization/sanitize` - Sanitize text by replacing sensitive words
+7. **CI/CD Pipeline**
+   - Automate build, test, and deployment using CI/CD tools (GitHub Actions, Azure DevOps, etc.).
+   - Run automated tests before deployment.
 
-### Sample API Requests
+8. **Backup & Disaster Recovery**
+   - Schedule regular database backups.
+   - Document and test recovery procedures.
 
-#### Create a Sensitive Word
-```json
-POST /api/sensitivewords
-{
-  "word": "badword",
-  "category": "Profanity",
-  "createdBy": "Admin"
-}
-```
+9. **Documentation & Support**
+   - Provide clear documentation for operators and users.
+   - Set up support channels and incident response plans.
 
-#### Sanitize Text
-```json
-POST /api/textsanitization/sanitize
-{
-  "text": "This contains a badword in the message",
-  "replacementCharacter": "*"
-}
-```
-
-**Response:**
-```json
-{
-  "originalText": "This contains a badword in the message",
-  "sanitizedText": "This contains a ******* in the message",
-  "detectedWords": ["badword"]
-}
-```
+This approach ensures a secure, scalable, and maintainable deployment for production environments.
 
 ## Performance Enhancements
 
 To enhance the performance of this project, consider implementing:
 
-1. **Caching**: 
-   - Redis for caching active sensitive words
-   - Memory caching for frequently accessed data
-
-2. **Database Optimization**:
+1. **Database Optimization**:
    - Database indexing on commonly queried fields
    - Query optimization and pagination
 
-3. **API Performance**:
+23. **API Performance**:
    - Rate limiting to prevent abuse
    - Response compression (gzip)
    - API versioning for backward compatibility
 
-4. **Text Processing**:
-   - Batch processing for multiple text sanitization requests
-   - Asynchronous processing for large texts
-   - Compiled regex patterns for better performance
+3. **Text Processing**:
+   - Advanced text search algorithm
 
 ## Additional Enhancements
 
@@ -173,19 +141,13 @@ To make this project more complete, consider adding:
    - Application Performance Monitoring (APM)
    - Health checks for API endpoints
 
-3. **Advanced Features**:
-   - Machine learning for automatic sensitive word detection
-   - Severity levels for different types of words
-   - Whitelist functionality for exceptions
-   - Multi-language support
-
-4. **DevOps & Deployment**:
+3. **DevOps & Deployment**:
    - Docker containerization
    - CI/CD pipelines
    - Configuration management
    - Database migrations
 
-5. **User Interface**:
+4. **User Interface**:
    - Real-time dashboard for monitoring
    - Bulk import/export functionality
    - Advanced filtering and search
@@ -195,7 +157,6 @@ To make this project more complete, consider adding:
 
 - **.NET 9.0**: Framework
 - **ASP.NET Core**: Web API and MVC
-- **Entity Framework Core**: ORM
 - **MSSQL**: Database
 - **Swagger/OpenAPI**: API documentation
 - **Bootstrap**: Frontend UI framework
@@ -214,14 +175,6 @@ SensitiveWordsClean/
 ├── tests/                                  # Unit and integration tests
 └── SensitiveWordsClean.sln                 # Solution file
 ```
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
 
 ## License
 

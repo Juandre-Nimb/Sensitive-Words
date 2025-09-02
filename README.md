@@ -34,6 +34,29 @@ The project follows Clean Architecture principles with the following layers:
    - Select "Multiple startup projects"
    - Set both `SensitiveWords.API` and `SensitiveWords.Web` to "Start"
 
+## Testing
+The project includes comprehensive unit tests covering:
+- Service layer business logic
+- Domain entity behavior
+- DTO validation and mapping
+
+To run all tests:
+```bash
+dotnet test
+```
+
+Test coverage includes:
+- **SensitiveWordService**: CRUD operations, validation, error handling
+- **Domain Entities**: Property validation and behavior
+- **DTOs**: Data transfer object initialization and property setting
+
+## API Testing
+Use the Postman collections in the `PostmanCollections` folder to test the API endpoints:
+- **Collection**: `SensitiveWords.postman_collection.json`
+- **Environment**: `SensitiveWords.postman_environment.json`
+
+Import both files into Postman to get started with API testing.
+
 ## Production Deployment Walkthrough
 
 To deploy this solution in a production environment, follow these recommended steps:
@@ -139,8 +162,11 @@ SensitiveWords/
 │   ├── SensitiveWords.Application/    # Business logic and DTOs
 │   ├── SensitiveWords.Infrastructure/ # Data access and services
 │   ├── SensitiveWords.API/            # RESTful Web API
-│   └── SensitiveWords.Web/            # MVC Web application
-├── tests/                                  # Unit and integration tests
+│   ├── SensitiveWords.Web/            # MVC Web application
+│   └── SensitiveWords.Tests/          # Unit tests
+├── PostmanCollections/                # Postman API collections
+│   ├── SensitiveWords.postman_collection.json
+│   └── SensitiveWords.postman_environment.json
 └── SensitiveWords.sln                 # Solution file
 ```
 

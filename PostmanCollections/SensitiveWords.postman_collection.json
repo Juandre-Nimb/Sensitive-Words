@@ -1,8 +1,8 @@
 {
 	"info": {
 		"_postman_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-		"name": "Sensitive Words Clean API",
-		"description": "Complete API collection for testing Sensitive Words Clean API endpoints",
+		"name": "Sensitive Words API",
+		"description": "Complete API collection for testing Sensitive Words API endpoints",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "12345678"
 	},

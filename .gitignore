@@ -1,0 +1,25 @@
+# Build results
+bin/
+obj/
+Debug/
+Release/
+
+# Visual Studio files
+.vs/
+*.user
+*.suo
+
+# IDE and tooling
+.vscode/
+.github/
+
+# Logs
+*.log
+
+# Database files
+*.mdf
+*.ldf
+
+# OS files
+.DS_Store
+Thumbs.db
